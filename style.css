@@ -1,0 +1,76 @@
+* {
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  background-color: lightslategray;
+  user-select: none;
+  transform: scale(1.5);
+}
+
+:root {
+  --btn-gap: 8px;
+  --cols: 4;
+}
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1rem;
+  width: 300px;
+  background-color: darkgrey;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.screen {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: right;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--btn-gap);
+}
+
+button {
+  flex-basis: calc(100% / var(--cols) - var(--btn-gap) / var(--cols) * (var(--cols) - 1));
+  background: hsl(330, 1%, 62%);
+  border-radius: 12px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+}
+
+.front {
+  display: block;
+  padding: 10px 0px;
+  border-radius: 12px;
+  background: hsl(343, 19%, 93%);
+  color: black;
+  transform: translateY(-3.5px);
+  white-space: nowrap;
+}
+
+button:active .front {
+  transform: translateY(-1px);
+}
+
+.equals {
+  flex-grow: 1;
+}
