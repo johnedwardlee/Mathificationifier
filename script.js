@@ -2,6 +2,7 @@
 const btns = document.querySelectorAll("button");
 const screen = document.querySelector(".screen");
 let display = "";
+let arr = "";
 
 // Functions
 const updateScreen = () => {
@@ -22,24 +23,30 @@ const del = () => {
 };
 
 const add = (a, b) => {
-  return a + b;
+  let num = a + b;
+  return Math.round((num + Number.EPSILON) * 100) / 100;
 };
 
 const subtract = (a, b) => {
-  return a - b;
+  let num = a - b;
+  return Math.round((num + Number.EPSILON) * 100) / 100;
 };
 
 const multiply = (a, b) => {
-  return a * b;
+  let num = a * b;
+  return Math.round((num + Number.EPSILON) * 100) / 100;
 };
 
 const divide = (a, b) => {
-  if (b) return a / b;
+  let num;
+  if (b) num = a / b;
   else alert("No divide by zero");
+  return Math.round((num + Number.EPSILON) * 100) / 100;
 };
 
 const mod = (a, b) => {
-  return a % b;
+  if (Number.isInteger(a) && Number.isInteger(b)) return a % b;
+  else alert("Modulo only work with integer numbskull");
 };
 
 const operate = (first, op, last) => {
@@ -53,6 +60,8 @@ const operate = (first, op, last) => {
 const parseBtn = (e) => {
   let inputClass = e.target.parentElement.classList[0];
   let inputText = e.target.outerText;
+  arr = display.toString().trim().split(/\s+/);
+  if (arr.length > 2 && inputClass == "op") inputClass = "equals";
   if (inputText === "AC") clear();
   else if (inputText === "C") del();
   else if (inputClass === "number") {
@@ -65,8 +74,11 @@ const parseBtn = (e) => {
     display += inputText;
     updateScreen();
   } else if (inputClass === "equals") {
-    let arr = display.trim().split(/\s+/);
     display = operate(Number(arr[0]), arr[1], Number(arr[2]));
+    if (display == undefined || isNaN(display)) {
+      display = "";
+      alert("You goofed up and made an error.");
+    }
     updateScreen();
   }
 };

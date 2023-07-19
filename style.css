@@ -39,6 +39,8 @@ body {
   border-radius: 8px;
   padding: 1rem;
   text-align: right;
+  height: 50px;
+  font-size: x-large;
 }
 
 .buttons {
@@ -49,7 +51,7 @@ body {
 
 button {
   flex-basis: calc(100% / var(--cols) - var(--btn-gap) / var(--cols) * (var(--cols) - 1));
-  background: hsl(330, 1%, 62%);
+  background: hsl(0, 0%, 56%);
   border-radius: 12px;
   border: none;
   padding: 0;
@@ -73,4 +75,16 @@ button:active .front {
 
 .equals {
   flex-grow: 1;
+}
+.equals > .front {
+  background-color: palegreen;
+}
+
+.op > .front {
+  background-color: steelblue;
+}
+
+.clear > .front,
+.del > .front {
+  background-color: palevioletred;
 }
