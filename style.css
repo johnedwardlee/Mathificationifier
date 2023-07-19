@@ -28,7 +28,7 @@ body {
   justify-content: center;
   align-items: stretch;
   gap: 1rem;
-  width: 300px;
+  width: 370px;
   background-color: darkgrey;
   padding: 10px;
   border-radius: 8px;
@@ -41,6 +41,7 @@ body {
   text-align: right;
   height: 50px;
   font-size: x-large;
+  margin: 0;
 }
 
 .buttons {
