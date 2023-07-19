@@ -1,2 +1,2 @@
-# calculator
-This be a calculator
+# Mathificationifier
+This be a Mathificationifier named Addison
